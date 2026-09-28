@@ -1,0 +1,38 @@
+<section class="dashboard">
+  <div class="dashboard-header">
+    <div>
+      <h1>Bonjour, {{ userData?.nom || 'Client' }} ! 👋</h1>
+      <p>Bienvenue dans votre espace personnel KOMBI PROD</p>
+    </div>
+    <button (click)="logout()" class="btn-logout">Se déconnecter</button>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="dash-card">
+      <div class="dash-icon">📋</div>
+      <h3>Mes Devis</h3>
+      <p>Aucun devis pour le moment</p>
+      <a routerLink="/devis" class="btn-dash">Demander un devis</a>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-icon">📦</div>
+      <h3>Mes Commandes</h3>
+      <p>Aucune commande pour le moment</p>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-icon">👤</div>
+      <h3>Mes Informations</h3>
+      <p><strong>Nom :</strong> {{ userData?.nom }}</p>
+      <p><strong>Email :</strong> {{ user?.email }}</p>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-icon">💬</div>
+      <h3>Support</h3>
+      <p>Besoin d'aide ?</p>
+      <a href="https://wa.me/237XXXXXXXXX" target="_blank" class="btn-dash">Contacter WhatsApp</a>
+    </div>
+  </div>
+</section>

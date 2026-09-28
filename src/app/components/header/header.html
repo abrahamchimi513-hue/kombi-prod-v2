@@ -1,0 +1,31 @@
+<header class="header">
+  <!-- Logo -->
+  <a routerLink="/" class="logo">
+    <img src="/love.jpeg" alt="KOMBI PROD">
+  </a>
+
+  <!-- Menu de navigation -->
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active">Accueil</a>
+    <a routerLink="/services" routerLinkActive="active">Services</a>
+    <a routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  </nav>
+
+  <!-- Boutons d'authentification -->
+  <div class="auth-buttons" *ngIf="user$ | async as user; else notLoggedIn">
+    <a routerLink="/dashboard" class="btn-user">
+      <span class="user-icon">👤</span>
+      {{ user.email }}
+    </a>
+    <button (click)="logout()" class="btn-logout">Déconnexion</button>
+  </div>
+
+  <ng-template #notLoggedIn>
+    <div class="auth-buttons">
+      <a routerLink="/login" class="btn-login">Connexion</a>
+      <a routerLink="/register" class="btn-register">Créer un compte</a>
+      <a routerLink="/devis" class="btn-devis">Devis gratuit</a>
+    </div>
+  </ng-template>
+</header>

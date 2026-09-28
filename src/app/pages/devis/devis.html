@@ -1,0 +1,203 @@
+<!-- BANNIÈRE -->
+<section class="page-banner">
+  <div class="banner-content">
+    <h1>Demander un Devis</h1>
+    <p>Réponse garantie sous 24h ouvrées</p>
+  </div>
+</section>
+
+<!-- SECTION DEVIS -->
+<section class="devis-section">
+  <div class="devis-container">
+
+    <!-- MESSAGE DE SUCCÈS -->
+    <div class="success-card" *ngIf="success">
+      <div class="success-icon">✅</div>
+      <h2>Demande envoyée avec succès !</h2>
+      <p>Merci pour votre confiance. Notre équipe vous contactera sous 24h via WhatsApp ou Email.</p>
+      <button (click)="resetForm()" class="btn-new">Faire une nouvelle demande</button>
+    </div>
+
+    <!-- FORMULAIRE -->
+    <div class="devis-form-wrapper" *ngIf="!success">
+      <div class="form-header">
+        <h2>Décrivez votre projet</h2>
+        <p>Plus vous êtes précis, plus notre devis sera rapide et adapté</p>
+      </div>
+
+      <div class="error-message" *ngIf="errorMessage">
+        ⚠️ {{ errorMessage }}
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #devisForm="ngForm" class="devis-form">
+
+        <!-- ÉTAPE 1 : TYPE DE SERVICE -->
+        <div class="form-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Type de service *</h3>
+            <div class="services-options">
+              <label class="service-option">
+                <input
+                  type="radio"
+                  [(ngModel)]="formData.service"
+                  name="service"
+                  value="Photographie / Agrandissement"
+                  required>
+                <span class="option-content">
+                  <span class="option-icon">📸</span>
+                  <span>Photographie</span>
+                </span>
+              </label>
+
+              <label class="service-option">
+                <input
+                  type="radio"
+                  [(ngModel)]="formData.service"
+                  name="service"
+                  value="Infographie / Impression">
+                <span class="option-content">
+                  <span class="option-icon">🎨</span>
+                  <span>Infographie</span>
+                </span>
+              </label>
+
+              <label class="service-option">
+                <input
+                  type="radio"
+                  [(ngModel)]="formData.service"
+                  name="service"
+                  value="Sérigraphie">
+                <span class="option-content">
+                  <span class="option-icon">👕</span>
+                  <span>Sérigraphie</span>
+                </span>
+              </label>
+
+              <label class="service-option">
+                <input
+                  type="radio"
+                  [(ngModel)]="formData.service"
+                  name="service"
+                  value="Personnalisation Bijoux">
+                <span class="option-content">
+                  <span class="option-icon">💎</span>
+                  <span>Bijoux</span>
+                </span>
+              </label>
+
+              <label class="service-option">
+                <input
+                  type="radio"
+                  [(ngModel)]="formData.service"
+                  name="service"
+                  value="Autre">
+                <span class="option-content">
+                  <span class="option-icon">✨</span>
+                  <span>Autre</span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 2 : DESCRIPTION -->
+        <div class="form-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Description du projet *</h3>
+            <textarea
+              [(ngModel)]="formData.description"
+              name="description"
+              rows="5"
+              placeholder="Ex: Je veux 50 t-shirts rouges avec mon logo en blanc au dos et devant..."
+              required></textarea>
+
+            <div class="form-group">
+              <label>Quantité souhaitée</label>
+              <input
+                type="number"
+                [(ngModel)]="formData.quantite"
+                name="quantite"
+                min="1"
+                placeholder="Ex: 50">
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 3 : COORDONNÉES -->
+        <div class="form-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Vos coordonnées *</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nom complet *</label>
+                <input
+                  type="text"
+                  [(ngModel)]="formData.nom"
+                  name="nom"
+                  placeholder="Votre nom"
+                  required>
+              </div>
+
+              <div class="form-group">
+                <label>Téléphone / WhatsApp *</label>
+                <input
+                  type="tel"
+                  [(ngModel)]="formData.telephone"
+                  name="telephone"
+                  placeholder="+237 XX XX XX XX"
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                [(ngModel)]="formData.email"
+                name="email"
+                placeholder="votre@email.com">
+            </div>
+          </div>
+        </div>
+
+        <!-- BOUTON ENVOYER -->
+        <button type="submit" class="btn-submit" [disabled]="!devisForm.valid || submitting">
+          <span *ngIf="!submitting">📩 Envoyer ma demande de devis</span>
+          <span *ngIf="submitting">⏳ Envoi en cours...</span>
+        </button>
+
+        <p class="form-note">🔒 Vos informations sont confidentielles et ne seront jamais partagées.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- AVANTAGES -->
+<section class="advantages">
+  <div class="advantages-grid">
+    <div class="advantage-card">
+      <div class="advantage-icon">⚡</div>
+      <h3>Réponse Rapide</h3>
+      <p>Sous 24h ouvrées</p>
+    </div>
+    <div class="advantage-card">
+      <div class="advantage-icon">💰</div>
+      <h3>Prix Compétitifs</h3>
+      <p>Les meilleurs tarifs du marché</p>
+    </div>
+    <div class="advantage-card">
+      <div class="advantage-icon">✨</div>
+      <h3>Qualité Garantie</h3>
+      <p>Travail soigné et professionnel</p>
+    </div>
+    <div class="advantage-card">
+      <div class="advantage-icon">🤝</div>
+      <h3>Accompagnement</h3>
+      <p>Nous vous suivons du début à la fin</p>
+    </div>
+  </div>
+</section>

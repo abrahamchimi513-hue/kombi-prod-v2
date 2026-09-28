@@ -1,0 +1,94 @@
+<!-- BANNIÈRE HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">✨ Réalise bien</span>
+    <h1>Donnez vie à vos idées avec <span class="highlight">KOMBI PROD</span></h1>
+    <p>Photographie • Infographie • Sérigraphie • Personnalisation</p>
+    <div class="hero-buttons">
+      <a routerLink="/services" class="btn-primary">Découvrir nos services</a>
+      <a routerLink="/devis" class="btn-secondary">Devis gratuit</a>
+    </div>
+  </div>
+  <div class="hero-shape"></div>
+</section>
+
+<!-- STATISTIQUES -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-card" *ngFor="let stat of stats">
+      <h3>{{ stat.value }}</h3>
+      <p>{{ stat.label }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOS SERVICES -->
+<section class="services-section">
+  <div class="section-header">
+    <h2>Nos Pôles d'Expertise</h2>
+    <p>Des solutions créatives pour tous vos besoins</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">📸</div>
+      <h3>Photographie & Agrandissements</h3>
+      <p>Bois, Vitre, Plexiglass, Bordure Dorée pour sublimer vos souvenirs.</p>
+      <a routerLink="/services" class="service-link">En savoir plus →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>Infographie & Impressions</h3>
+      <p>Logos, Flyers, Banderoles, Cartes de visite pour booster votre marque.</p>
+      <a routerLink="/services" class="service-link">En savoir plus →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">👕</div>
+      <h3>Sérigraphie & Personnalisation</h3>
+      <p>T-shirts, Polos, Casquettes, Mugs, Bijoux personnalisés.</p>
+      <a routerLink="/services" class="service-link">En savoir plus →</a>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI NOUS CHOISIR -->
+<section class="why-us">
+  <div class="section-header">
+    <h2>Pourquoi choisir KOMBI PROD ?</h2>
+    <p>Nous nous engageons à donner le meilleur de nous-mêmes</p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3>Rapidité</h3>
+      <p>Livraison dans les délais respectés</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✨</div>
+      <h3>Qualité Pro</h3>
+      <p>Matériaux et finitions haut de gamme</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💰</div>
+      <h3>Prix Abordables</h3>
+      <p>Des tarifs adaptés à tous les budgets</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <h3>Service Client</h3>
+      <p>Une équipe à votre écoute 7j/7</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPEL À L'ACTION -->
+<section class="cta">
+  <div class="cta-content">
+    <h2>Prêt à démarrer votre projet ?</h2>
+    <p>Demandez un devis gratuit en 2 minutes et recevez une réponse sous 24h</p>
+    <a routerLink="/devis" class="btn-cta">Demander un devis gratuit</a>
+  </div>
+</section>

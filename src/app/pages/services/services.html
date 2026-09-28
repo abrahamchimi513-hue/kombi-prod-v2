@@ -1,0 +1,35 @@
+<!-- BANNIÈRE -->
+<section class="page-banner">
+  <div class="banner-content">
+    <h1>Nos Services</h1>
+    <p>Des solutions créatives pour tous vos besoins</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-list">
+  <div class="service-detail" *ngFor="let service of services; let i = index" [class.reverse]="i % 2 !== 0">
+    <div class="service-image" [style.background]="service.color">
+      <span>{{ service.icon }}</span>
+    </div>
+    <div class="service-content">
+      <h2>{{ service.title }}</h2>
+      <p>{{ service.description }}</p>
+      <ul>
+        <li *ngFor="let item of service.items">
+          <span class="check">✓</span> {{ item }}
+        </li>
+      </ul>
+      <a routerLink="/devis" class="btn-service">Demander un devis →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-content">
+    <h2>Un projet en tête ?</h2>
+    <p>Discutons-en ensemble et concrétisons vos idées</p>
+    <a routerLink="/devis" class="btn-cta">Demander un devis gratuit</a>
+  </div>
+</section>

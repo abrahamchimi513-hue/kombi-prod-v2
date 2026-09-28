@@ -1,0 +1,53 @@
+<!-- BANNIÈRE -->
+<section class="page-banner">
+  <div class="banner-content">
+    <h1>Nos Réalisations</h1>
+    <p>Découvrez quelques-uns de nos projets récents</p>
+  </div>
+</section>
+
+<!-- FILTRES -->
+<section class="filters-section">
+  <div class="filters">
+    <button
+      *ngFor="let cat of categories"
+      [class.active]="selectedCategory === cat"
+      (click)="filterCategory(cat)">
+      {{ cat }}
+    </button>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section class="gallery-section">
+  <div class="gallery">
+    <div class="gallery-item" *ngFor="let item of filteredItems">
+      <div class="gallery-image">
+        <img [src]="item.image" [alt]="item.title" loading="lazy">
+        <div class="overlay">
+          <div class="overlay-content">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.category }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-info">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.category }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-results" *ngIf="filteredItems.length === 0">
+    <p>Aucune réalisation dans cette catégorie pour le moment.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-content">
+    <h2>Votre projet sera le prochain !</h2>
+    <p>Rejoignez nos clients satisfaits et concrétisons vos idées</p>
+    <a routerLink="/devis" class="btn-cta">Demander un devis gratuit</a>
+  </div>
+</section>
